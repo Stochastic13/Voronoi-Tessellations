@@ -1,5 +1,5 @@
 # VoronoiTessellations
-Python3 script to create [Voronoi](https://en.wikipedia.org/wiki/Voronoi_diagram) Tessellations (Mosaic pattern) on images. The script basically does 2D k-means-like clustering of the pixels based on fixed pre-defined cluster centres, and averages the RGB values for each cluster group and assigns all the pixels in the group the average value. Further options allow selectively applying average to only one of the RGB channels or exchanging values of the channels randomly (see docs).
+Python3 script to create [Voronoi](https://en.wikipedia.org/wiki/Voronoi_diagram) Tessellations (Mosaic pattern) on images. The script basically does 2D k-means-like clustering of the pixels based on fixed pre-defined cluster centres, and averages the RGB values for each cluster group and assigns all the pixels in the group the average value. Further options allow selectively applying average to only one of the RGB channels or exchanging values of the channels randomly (see [docs](VorTes docs.pdf)).
 
 ### Requirements
 1. Python3
@@ -45,7 +45,7 @@ You can run the following command to see help:
                             Only for gaussian probmap
                             (mx,my,sigmax,sigmay,corr(opt),spacing(opt))
                             
-For further details, see the docs.
+For further details, see the [docs](VorTes docs.pdf).
 
 ### Examples
 Source:
