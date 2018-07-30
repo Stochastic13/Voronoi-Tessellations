@@ -52,15 +52,15 @@ Source:
 <div align=çenter>
   <img src='demo\demo.jpg' height=250px>
   </div>
-#### default options, 2000 clusters
+ default options, 2000 clusters
 <div align=çenter>
   <img src='demo\default_options_2000.jpg' height=250px>
   </div>
-#### gaussian probmap using the `--gaussian` option with `--gaussianvars 0.3 0.8 90 150`
+ gaussian probmap using the `--gaussian` option with `--gaussianvars 0.3 0.8 90 150`
 <div align=çenter>
   <img src='demo\gaussian_3000.jpg' height=250px>
   </div>
-#### `--channel rand` and `--channel randdual`
+ `--channel rand` and `--channel randdual`
 <div align=çenter>
   <img src='demo\channel_1000.jpg' height=250px>
   <img src='demo\channel2_1000.jpg' height=250px>
