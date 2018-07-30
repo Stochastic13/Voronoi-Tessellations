@@ -45,6 +45,7 @@ if not (args.clusmap == 0): # Pre-formed cluster-map
     with open(args.clusmap) as f:
         for row in f:
             clusters.append(list(map(float,row.split('\t'))))
+    clusters = np.array(clusters)
 elif not (args.probmap == 0): #Probability distribution for Inverse Transform Sampling
     if args.probmap == 'gaussian':
         if len(args.gaussianvars)<6:
