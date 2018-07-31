@@ -44,6 +44,7 @@ if not (args.clusmap == 0): # Pre-formed cluster-map
     clusters = []
     with open(args.clusmap) as f:
         for row in f:
+            row = row.split('\n')[0]
             clusters.append(list(map(float,row.split('\t'))))
     clusters = np.array(clusters)
 elif not (args.probmap == 0): #Probability distribution for Inverse Transform Sampling
