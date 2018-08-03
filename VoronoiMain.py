@@ -30,8 +30,6 @@ if not args.seed=='None':
 img = Image.open(args.input)
 img = img.resize((int(img.size[0]/args.rescale),int(img.size[1]/args.rescale)))
 img = np.array(img)
-if args.cn==0:
-    args.cn = int(np.mean(img.shape)*0.1)
 
 # verbose mode?
 verb = [False,True][args.verbose]
@@ -47,6 +45,7 @@ if not (args.clusmap == 0): # Pre-formed cluster-map
             row = row.split('\n')[0]
             clusters.append(list(map(float,row.split('\t'))))
     clusters = np.array(clusters)
+    args.cn = clusters.shape[0]
 elif not (args.probmap == 0): #Probability distribution for Inverse Transform Sampling
     if args.probmap == 'gaussian':
         if len(args.gaussianvars)<6:
