@@ -47,7 +47,8 @@ You can run the following command to see help:
                             (mx,my,sigmax,sigmay,corr(opt),spacing(opt))
                             
 For further details, see the [docs](https://github.com/Stochastic13/VoronoiTessellations/blob/master/VorTes%20docs.pdf).
-###GUI
+
+### GUI
 This allows an easy way of generating custom cluster maps. Run `gui_clusmap.py` with the input file and the output file as the arguments. For further details, refer [docs](https://github.com/Stochastic13/VoronoiTessellations/blob/master/VorTes%20docs.pdf).
 ### Examples
 Source:
