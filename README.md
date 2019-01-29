@@ -29,7 +29,7 @@ You can run the following command to see help:
     positional arguments:
       input                 Input Image file
       output                Output Image file
-      cn                    Number of clusters (default = 0.1*size)
+      cn                    Number of clusters (default = 0.1*smaller_dimension)
 
     optional arguments:
       -h, --help            show this help message and exit
