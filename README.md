@@ -1,5 +1,5 @@
 # VoronoiTessellations
-Python3 script to create [Voronoi](https://en.wikipedia.org/wiki/Voronoi_diagram) Tessellations (Mosaic pattern) on images. The script basically does 2D k-means-like clustering of the pixels based on fixed pre-defined cluster centres, and averages the RGB values for each cluster group and assigns all the pixels in the group the average value. Further options allow selectively applying average to only one of the RGB channels or exchanging values of the channels randomly (see [docs](https://github.com/Stochastic13/VoronoiTessellations/blob/master/VorTes%20docs.pdf)).
+Python3 script to create [Voronoi](https://en.wikipedia.org/wiki/Voronoi_diagram) Tessellations (Mosaic pattern) on images. The script basically does 2D k-means-like clustering of the pixels based on fixed pre-defined cluster centres (which can be set to be random), and averages the RGB values for each cluster group and assigns all the pixels in the group the average value. Further options allow selectively applying average to only one of the RGB channels or exchanging values of the channels randomly (see [docs](https://github.com/Stochastic13/VoronoiTessellations/blob/master/VorTes%20docs.pdf)).
 
 
 This is my first ever open-source repository. :)
@@ -62,11 +62,15 @@ Source:
 <div align=çenter>
   <img src='demo\default_options_2000.jpg' height=250px>
   </div>
+  
  gaussian probmap using the `--gaussian` option with `--gaussianvars 0.3 0.8 90 150`
+ 
 <div align=çenter>
   <img src='demo\gaussian_3000.jpg' height=250px>
   </div>
+  
  `--channel rand` and `--channel randdual`
+ 
 <div align=çenter>
   <img src='demo\channel_1000.jpg' height=250px>
   <img src='demo\channel2_1000.jpg' height=250px>
