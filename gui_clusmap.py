@@ -15,7 +15,7 @@ def labelupdate(which):
 def saver(event=None):
     global finalarr
     finalarr = finalarr * fac
-    finalarr[:, 0], finalarr[:, 1] = (np.array(finalarr[:, 1], copy=False), np.array(finalarr[:, 0], copy=True))
+    finalarr[:, 0], finalarr[:, 1] = (np.array(finalarr[:, 1], copy=True), np.array(finalarr[:, 0], copy=True))
     with open(outfilename, 'w', newline='') as f:
         f.write('\n'.join(list(map(lambda x: '\t'.join([str(x[0]), str(x[1])]), finalarr))))
     root.destroy()
@@ -82,27 +82,27 @@ def reset(event=None):
     mainc.delete('points')
 
 
-finalarr = np.array([])
+finalarr = np.array([])  # To be converted into output
 filename = sys.argv[1]
 outfilename = sys.argv[2]
-root = tk.Tk()
+root = tk.Tk()  # Root window
 img = Image.open(filename)
-fac = 1
+fac = 1  # To adjust display size
 if img.size[0] > 1200 or img.size[1] > 900:
     fac = max((img.size[0] / 1000), (img.size[1] / 700))
 img = img.resize((int(img.size[0] / fac), int(img.size[1] / fac)))
-mainf = tk.Frame(root, width=img.size[0] + 200, height=img.size[1])
+mainf = tk.Frame(root, width=img.size[0] + 200, height=img.size[1])  # Main frame
 mainf.pack()
-mainc = tk.Canvas(mainf, width=img.size[0], height=img.size[1], bg='white')
+mainc = tk.Canvas(mainf, width=img.size[0], height=img.size[1], bg='white')  # Canvas for displaying image
 mainc.grid(row=0, column=0, sticky='ns')
 panel = tk.Frame(mainf, width=200, height=img.size[1], bg='white')
 panel.grid(row=0, column=1, sticky='ns')
-sharp = ImageEnhance.Sharpness(img)
+sharp = ImageEnhance.Sharpness(img)  # To allow for better visualisation despite increasing alpha
 img = sharp.enhance(0)
 img.putalpha(210)
 im = PhotoImage(img)
 imc = mainc.create_image(0, 0, image=im, anchor=tk.NW)
-mainc.image = im
+mainc.image = im  # Reference to not let the image be garbage collected
 mainc.bind('<Motion>', move_sprayer)
 mainc.bind('<Button-1>', spray)
 stat = tk.StringVar(root)
