@@ -53,6 +53,26 @@ For further details, see the [docs](https://github.com/Stochastic13/VoronoiTesse
 
 ### GUI
 This allows an easy way of generating custom cluster maps. Run `gui_clusmap.py` with the input file and the output file as the arguments. For further details, refer [docs](https://github.com/Stochastic13/VoronoiTessellations/blob/master/VorTes%20docs.pdf).
+
+### Performance
+For each of the following test, an image of size **1728 x 2304 pixels**, and ran on a **i7-8th Gen Acer Predator Helios 300 with 16GB RAM**. t_clus represents the time in seconds for the cluster computation step, t_avg the time for the averaging step in seconds and the max memory represents the maximum RAM memory used in MB (not very reliable, but approximately true). The seed is 123 wherever applicable. lm stands for low_mem and f stands for fast methods.
+
+
+|Options | t_clus | t_avg | max memory|
+|--------|--------|-------|-----------|
+|cn 1000 rescale 2 lm | 9 | 8 | 30|
+|cn 1000 rescale 2 f | 4 | 4 | 394|
+|cn 500 border lm | 143 | 20 | 47|
+|clusmap A lm | 48 | 63 | 50|
+|clusmap A f | 16 | 8 | 751|
+|cn 1000 channel r lm | 37 | 13 | 51|
+|cn 1000 channel r f | 13 | 5 | 754|
+|cn 500 gaussian lm | 28 | 17 | 98|
+|cn 500 gaussian f | 11 | 4 | 930|
+|cn 2000 probmap B lm | 50 | 51 | 50|
+|cn 2000 probmap B f | 14 | 5 | 760|
+
+
 ### Examples
 Source:
 <div align=çenter>
