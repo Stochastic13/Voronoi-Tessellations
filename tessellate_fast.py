@@ -1,24 +1,25 @@
 import numpy as np
+from multiprocessing import Pool, Process, Manager
 
 
-def bordercalc(x, threshold, cn):
-    if True in (-np.diff(np.sort(x, 0))) <= threshold:
-        return cn + 1
-    else:
-        return np.argmin(x)
+def initfoo(data):
+    global clus
+    clus = data
+
+
+def workerfoo(ind):
+    subdists = (clus[:, 0] - ind[0]) ** 2 + (clus[:, 1] - ind[1]) ** 2
+    return np.argmin(np.array(subdists))
 
 
 def tessel_fast(clusters, shape, verbose=True, border=False, threshold=200):
     if verbose:
         print("Loading array of indices")
-    indices = np.indices((shape[0], shape[1]), dtype=np.uint16).transpose([1, 2, 0])
+    indices = [(i, j) for i in range(shape[0]) for j in range(shape[1])]
+    clus = None
     if verbose:
         print('Computing distances.')
-    indices = np.sum((clusters.transpose()[None, None, :, :] - indices[:, :, :, None]) ** 2, axis=2)
-    if not border:  # I seem to have done some indexing dark magic above. It is all Greek to me now.
-        if verbose:
-            print('Assigning Clusters.')
-        return np.apply_along_axis(np.argmin, 2, indices)
-    if verbose:
-        print('Assigning Clusters and Border tags.')
-    return np.apply_along_axis(lambda x: bordercalc(x, threshold, len(clusters)), 2, indices)
+    with Pool(initializer=initfoo, initargs=(clusters, )) as P:
+        dist = np.array(P.map(workerfoo, indices, chunksize=100))
+    dist = dist.reshape(shape[0:2])
+    return dist

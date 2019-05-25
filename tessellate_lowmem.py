@@ -25,7 +25,6 @@ def tessel_low_mem(clusters, shape, verbose=True, border=False, threshold=200):
                 else:
                     dist[i - 1, j - 1] = clus
             else:
-                dist[
-                    i - 1, j - 1] = clus  # I can't see why I start i,j from 1, and then subtract 1 at the end.
+                dist[i - 1, j - 1] = clus  # I can't see why I start i,j from 1, and then subtract 1 at the end.
                 # But I am keeping it like this in hope that my past self had some rationale.
     return dist
